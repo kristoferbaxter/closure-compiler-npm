@@ -29,7 +29,6 @@ const sourcemaps = require('gulp-sourcemaps');
 const File = require('vinyl');
 const compilerPackage = require('../');
 const ClosureCompiler = require('../lib/node/closure-compiler');
-const JsClosureCompiler = require('../lib/node/closure-compiler-js');
 const streamFilter = require('gulp-filter');
 
 require('mocha');
@@ -53,25 +52,13 @@ describe('gulp-google-closure-compiler', function() {
       enumerable: false,
       configurable: true
     });
-
-    originalJsCompilerRunMethod = Object.getOwnPropertyDescriptor(JsClosureCompiler.prototype, 'run');
-    Object.defineProperty(JsClosureCompiler.prototype, 'run', {
-      value: function(...args) {
-        platformUtilized = 'javascript';
-        return originalJsCompilerRunMethod.value.apply(this, args);
-      },
-      writable: true,
-      enumerable: false,
-      configurable: true
-    });
   });
 
   after(() => {
     Object.defineProperty(ClosureCompiler.prototype, 'run', originalCompilerRunMethod);
-    Object.defineProperty(JsClosureCompiler.prototype, 'run', originalJsCompilerRunMethod);
   });
 
-  ['java', 'native', 'javascript'].forEach(platform => {
+  ['java', 'native'].forEach(platform => {
     describe(`${platform} version`, function() {
       const closureCompiler = compilerPackage.gulp();
 

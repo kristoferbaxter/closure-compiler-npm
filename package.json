@@ -1,5 +1,5 @@
 {
-  "name": "closure-compiler-npm",
+  "name": "@kristoferbaxter/closure-compiler-npm",
   "version": "1.0.0",
   "private": true,
   "workspaces": {
