@@ -78,7 +78,7 @@ module.exports = function(initOptions) {
   }
 
   function getCompiler(platform) {
-    return platform === 'javascript' ? require('../node/closure-compiler-js') : require('../node/closure-compiler');
+    return require('../node/closure-compiler');
   }
 
   class CompilationStream extends stream.Transform {

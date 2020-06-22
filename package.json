@@ -24,6 +24,7 @@
   "homepage": "https://developers.google.com/closure/compiler/",
   "dependencies": {},
   "devDependencies": {
+    "fs-extra": "9.x",
     "glob": "7.x",
     "lerna": "^3.4.1",
     "mocha": "6.x",

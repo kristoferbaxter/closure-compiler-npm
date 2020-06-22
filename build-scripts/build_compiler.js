@@ -31,8 +31,7 @@
  */
 "use strict";
 
-const ncp = require("ncp");
-const fs = require("fs");
+const fs = require("fs-extra");
 const path = require("path");
 const runCommand = require("./run-command");
 
@@ -81,23 +80,36 @@ function copy(src, dest) {
  */
 function copyCompilerBinaries() {
   return Promise.all([
-    copy(
+    fs.copy(
       compilerJavaBinaryPath,
       "./packages/google-closure-compiler-java/compiler.jar"
     ),
-    copy(
+    fs.copy(
       compilerJavaBinaryPath,
       "./packages/google-closure-compiler-linux/compiler.jar"
     ),
-    copy(
+    fs.copy(
       compilerJavaBinaryPath,
       "./packages/google-closure-compiler-osx/compiler.jar"
     ),
-    copy(
+    fs.copy(
       compilerJavaBinaryPath,
       "./packages/google-closure-compiler-windows/compiler.jar"
     ),
-    copy("./compiler/contrib", "./packages/google-closure-compiler/contrib"),
+    fs.copy("./compiler/contrib", "./packages/google-closure-compiler/contrib"),
+  ]);
+}
+
+/**
+ * Copy AMP Specific Runner and pom to the git submodule 'compiler'
+ *
+ * @return {!Promise<undefined>}
+ */
+function patchCompiler() {
+  const compilerRoot = "./compiler";
+  return Promise.all([
+    copy(compilerRoot + "/src", "./src"),
+    copy(compilerRoot, "pom-amp.xml"),
   ]);
 }
 
@@ -111,7 +123,10 @@ if (!fs.existsSync(compilerJavaBinaryPath)) {
     process.env.MAVEN_OPTS = "-Djansi.force=true";
   }
 
-  runCommand(mvnCmd, extraMvnArgs.concat(["clean"]), { cwd: "./compiler" })
+  patchCompiler()
+    .then(() =>
+      runCommand(mvnCmd, extraMvnArgs.concat(["clean"]), { cwd: "./compiler" })
+    )
     .then(({ exitCode }) => {
       if (exitCode !== 0) {
         process.exit(exitCode);
@@ -122,7 +137,7 @@ if (!fs.existsSync(compilerJavaBinaryPath)) {
         extraMvnArgs.concat([
           "-DskipTests",
           "-pl",
-          "externs/pom.xml,pom-main.xml,pom-main-shaded.xml",
+          "externs/pom.xml,pom-main.xml,pom-amp.xml",
           "install",
         ]),
         { cwd: "./compiler" }
