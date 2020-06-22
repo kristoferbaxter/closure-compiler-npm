@@ -32,13 +32,13 @@ process.on('unhandledRejection', error => {
 (async function(){
   // 1. Copy AMP Specific Runner and pom to the git submodule 'compiler'
   await Promise.all([
-    fs.copy(path.resolve(compilerRoot, "src"), "./src"),
-    fs.copy(compilerRoot, "pom-amp.xml"),
+    fs.copy("./patch/src/", path.resolve("./compiler/src/")),
+    fs.copy("./patch/pom-amp.xml", path.resolve("./compiler/pom-amp.xml")),
   ]);
   
   // 2. Modify `pom-main.xml` to include `pom-amp.xml`.
-  const pomMain = path.resolve(compilerRoot, "pom-main.xml")
-  const pomMainContent = await fs.readFile(pomMain);
+  const pomMain = path.resolve(compilerRoot, "pom-main.xml");
+  const pomMainContent = await fs.readFile(pomMain, "utf8");
   // TODO: Use a XML Parser, and output an updated list of modules.
   pomMainContent.replace('<module>pom-main-shaded.xml</module>', `<module>pom-main-shaded.xml</module>
   <module>pom-amp.xml</module>`);
