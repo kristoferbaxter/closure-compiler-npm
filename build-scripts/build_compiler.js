@@ -57,23 +57,6 @@ const compilerJavaBinaryPath = `./compiler/target/closure-compiler-${compilerVer
 console.log(process.platform, process.arch, compilerVersion);
 
 /**
- * @param {string} src path to source file or folder
- * @param {string} dest path to destination file or folder
- * @return {!Promise<undefined>}
- */
-function copy(src, dest) {
-  return new Promise((resolve, reject) => {
-    ncp(src, dest, (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    });
-  });
-}
-
-/**
  * Copy the newly built compiler and the contrib folder to the applicable packages.
  *
  * @return {!Promise<undefined>}
@@ -108,8 +91,8 @@ function copyCompilerBinaries() {
 function patchCompiler() {
   const compilerRoot = "./compiler";
   return Promise.all([
-    copy(compilerRoot + "/src", "./src"),
-    copy(compilerRoot, "pom-amp.xml"),
+    fs.copy(compilerRoot + "/src", "./src"),
+    fs.copy(compilerRoot, "pom-amp.xml"),
   ]);
 }
 

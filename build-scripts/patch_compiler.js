@@ -39,6 +39,9 @@ process.on('unhandledRejection', error => {
   const pomMain = path.resolve(compilerRoot, "pom-main.xml");
   const pomMainXML = create(await fs.readFile(pomMain, "utf8"));
   const modules = pomMainXML.root().find(n => n.node.nodeName === "modules");
+  if (modules.find(n => n.node.textContent === 'pom-amp.xml')) {
+    return;
+  }
   modules.ele({module: 'pom-amp.xml'});
   await fs.writeFile(pomMain, pomMainXML.end({ prettyPrint: true }));
 })();
