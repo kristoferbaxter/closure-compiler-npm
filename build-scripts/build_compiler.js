@@ -83,19 +83,6 @@ function copyCompilerBinaries() {
   ]);
 }
 
-/**
- * Copy AMP Specific Runner and pom to the git submodule 'compiler'
- *
- * @return {!Promise<undefined>}
- */
-function patchCompiler() {
-  const compilerRoot = "./compiler";
-  return Promise.all([
-    fs.copy(compilerRoot + "/src", "./src"),
-    fs.copy(compilerRoot, "pom-amp.xml"),
-  ]);
-}
-
 const mvnCmd = `mvn${process.platform === "win32" ? ".cmd" : ""}`;
 
 if (!fs.existsSync(compilerJavaBinaryPath)) {
@@ -106,10 +93,7 @@ if (!fs.existsSync(compilerJavaBinaryPath)) {
     process.env.MAVEN_OPTS = "-Djansi.force=true";
   }
 
-  patchCompiler()
-    .then(() =>
-      runCommand(mvnCmd, extraMvnArgs.concat(["clean"]), { cwd: "./compiler" })
-    )
+  runCommand(mvnCmd, extraMvnArgs.concat(["clean"]), { cwd: "./compiler" })
     .then(({ exitCode }) => {
       if (exitCode !== 0) {
         process.exit(exitCode);
