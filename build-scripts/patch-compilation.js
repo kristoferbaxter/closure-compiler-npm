@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
+const { create } = require('xmlbuilder2');
 const fs = require("fs-extra");
 const path = require("path");
 
 const compilerRoot = "./compiler";
-
 
 // This script should catch and handle all rejected promises.
 // If it ever fails to do so, report that and exit immediately.
@@ -27,7 +27,6 @@ process.on('unhandledRejection', error => {
   console.error(error);
   process.exit(1);
 });
-
 
 (async function(){
   // 1. Copy AMP Specific Runner and pom to the git submodule 'compiler'
@@ -38,9 +37,8 @@ process.on('unhandledRejection', error => {
   
   // 2. Modify `pom-main.xml` to include `pom-amp.xml`.
   const pomMain = path.resolve(compilerRoot, "pom-main.xml");
-  const pomMainContent = await fs.readFile(pomMain, "utf8");
-  // TODO: Use a XML Parser, and output an updated list of modules.
-  pomMainContent.replace('<module>pom-main-shaded.xml</module>', `<module>pom-main-shaded.xml</module>
-  <module>pom-amp.xml</module>`);
-  await fs.writeFile(pomMain, pomMainContent);
+  const pomMainXML = create(await fs.readFile(pomMain, "utf8"));
+  const modules = pomMainXML.root().find(n => n.node.nodeName === "modules");
+  modules.ele({module: 'pom-amp.xml'});
+  await fs.writeFile(pomMain, pomMainXML.end({ prettyPrint: true }));
 })();

@@ -30,7 +30,8 @@
     "mocha": "6.x",
     "ncp": "2.x",
     "semver": "5.x",
-    "should": "13.x"
+    "should": "13.x",
+    "xmlbuilder2": "2.1.5"
   },
   "scripts": {
     "build": "./build-scripts/build.sh",
