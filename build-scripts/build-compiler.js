@@ -82,14 +82,7 @@ function copyCompilerBinaries() {
 const mvnCmd = `mvn${process.platform === "win32" ? ".cmd" : ""}`;
 
 if (!fs.existsSync(compilerJavaBinaryPath)) {
-  // Force maven to use colorized output
-  const extraMvnArgs =
-    process.env.TRAVIS || process.env.APPVEYOR ? ["-Dstyle.color=always"] : [];
-  if (process.env.TRAVIS || process.env.APPVEYOR) {
-    process.env.MAVEN_OPTS = "-Djansi.force=true";
-  }
-
-  runCommand(mvnCmd, extraMvnArgs.concat(["clean"]), { cwd: "./compiler" })
+  runCommand(mvnCmd, ["clean"], { cwd: "./compiler" })
     .then(({ exitCode }) => {
       if (exitCode !== 0) {
         process.exit(exitCode);
@@ -97,12 +90,12 @@ if (!fs.existsSync(compilerJavaBinaryPath)) {
       }
       return runCommand(
         mvnCmd,
-        extraMvnArgs.concat([
+        [
           "-DskipTests",
           "-pl",
           "externs/pom.xml,pom-main.xml,pom-amp.xml",
           "install",
-        ]),
+        ],
         { cwd: "./compiler" }
       );
     })

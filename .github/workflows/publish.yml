@@ -16,6 +16,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn install
-    - run: yarn build
-    - run: yarn restrict
+    - name: Build and Restrict Native Binaries
+      run: yarn install; yarn build; yarn restrict
+    - name: Publish Binaries
+      run: yarn publish

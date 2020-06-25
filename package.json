@@ -6,30 +6,24 @@
     "packages": ["packages/*"],
     "nohoist": ["**/mocha"]
   },
-  "description": "Check, compile, optimize and compress Javascript with Closure-Compiler",
+  "description": "Forked Closure Compiler Publishing using AMP Command Line Runner",
   "repository": {
     "type": "git",
-    "url": "https://github.com/google/closure-compiler-npm.git"
+    "url": "https://github.com/kristoferbaxter/closure-compiler-npm.git"
   },
-  "contributors": [
-    {
-      "name": "Chad Killingsworth",
-      "email": "chadkillingsworth@gmail.com"
-    }
-  ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/google/closure-compiler/issues"
   },
   "homepage": "https://developers.google.com/closure/compiler/",
-  "dependencies": {},
   "devDependencies": {
     "fs-extra": "9.x",
     "glob": "7.x",
+    "google-closure-compiler": "20200614.0.0",
     "lerna": "^3.4.1",
     "mocha": "6.x",
     "ncp": "2.x",
-    "semver": "5.x",
+    "semver": "7.x",
     "should": "13.x",
     "xmlbuilder2": "2.1.5"
   },
