@@ -1,4 +1,4 @@
-name: Publish Linux Binary
+name: Publish Binaries
 
 on:
   push:
