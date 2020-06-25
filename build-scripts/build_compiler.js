@@ -75,10 +75,6 @@ function copyCompilerBinaries() {
       compilerJavaBinaryPath,
       "./packages/google-closure-compiler-osx/compiler.jar"
     ),
-    fs.copy(
-      compilerJavaBinaryPath,
-      "./packages/google-closure-compiler-windows/compiler.jar"
-    ),
     fs.copy("./compiler/contrib", "./packages/google-closure-compiler/contrib"),
   ]);
 }

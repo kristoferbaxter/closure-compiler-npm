@@ -39,7 +39,6 @@ const nightlyVersion = `${today.getFullYear()}${month}${day}.0.0-nightly`;
     await runCommand('git', ['add', 'compiler']);
     await runCommand('git', ['add', 'packages/google-closure-compiler-linux/package.json']);
     await runCommand('git', ['add', 'packages/google-closure-compiler-osx/package.json']);
-    await runCommand('git', ['add', 'packages/google-closure-compiler-windows/package.json']);
     await runCommand('git', ['commit', '-m', `Create version for nightly release ${nightlyVersion}`]);
     // Get the list of packages in this repo
     const packages = glob.sync('packages/google-closure-compiler*')
