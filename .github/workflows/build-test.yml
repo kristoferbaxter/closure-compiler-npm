@@ -18,13 +18,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install Dependencies
-      with: yarn install
+      run: yarn install
     - name: Upgrade Packages to Specified Closure Version
-      with: node ./build-scripts/bump-version.js
+      run: node ./build-scripts/bump-version.js
     - name: Compile Native Binary
-      with: yarn build
+      run: yarn build
     - name: Test Changes
-      with: yarn test
+      run: yarn test
     - name: Push Changes
       uses: kristoferbaxter/github-push-action@master
       with:
