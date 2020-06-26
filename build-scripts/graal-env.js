@@ -13,19 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use strict';
+"use strict";
 
-const GRAAL_OS = process.platform === 'win32' ? 'windows' : process.platform;
-const GRAAL_VERSION = process.env.GRAAL_VERSION || '19.0.0';
-const GRAAL_FOLDER = `graalvm-ce-${GRAAL_OS}-amd64-${GRAAL_VERSION}`;
-const GRAAL_PACKAGE_SUFFIX = GRAAL_OS === 'windows' ? 'zip' : 'tar.gz';
-const GRAAL_URL = process.env.GRAAL_URL ||
-    `https://github.com/oracle/graal/releases/download/vm-${GRAAL_VERSION}/${GRAAL_FOLDER}.${GRAAL_PACKAGE_SUFFIX}`;
+const GRAAL_OS = process.platform === "win32" ? "windows" : process.platform;
+const GRAAL_VERSION = process.env.GRAAL_VERSION || "20.1.0";
+const GRAAL_FOLDER = `graalvm-ce-java8-${GRAAL_OS}-amd64-${GRAAL_VERSION}`;
+const GRAAL_PACKAGE_SUFFIX = GRAAL_OS === "windows" ? "zip" : "tar.gz";
+const GRAAL_URL =
+  process.env.GRAAL_URL ||
+  `https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/${GRAAL_FOLDER}.${GRAAL_PACKAGE_SUFFIX}`;
 
 module.exports = {
   GRAAL_OS,
   GRAAL_VERSION,
   GRAAL_FOLDER,
   GRAAL_PACKAGE_SUFFIX,
-  GRAAL_URL
+  GRAAL_URL,
 };

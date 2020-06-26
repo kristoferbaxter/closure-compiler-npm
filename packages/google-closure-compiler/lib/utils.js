@@ -16,23 +16,12 @@
 'use strict';
 
 function getNativeImagePath() {
-  if (process.platform === 'darwin') {
-    try {
-      return require('google-closure-compiler-osx');
-    } catch (e) {
-      return;
-    }
-  }
-  if (process.platform === 'win32') {
-    try {
-      return require('google-closure-compiler-windows');
-    } catch (e) {
-      return;
-    }
-  }
+  const suffix = process.platform === 'darwin' ? 'osx' : 'linux';
+
   try {
-    return require('google-closure-compiler-linux');
+    return require(`@kristoferbaxter/google-closure-compiler-${suffix}`);
   } catch (e) {
+    return;
   }
 }
 
@@ -44,10 +33,6 @@ function getFirstSupportedPlatform(platforms) {
           return true;
         }
         return process.env.JAVA_HOME;
-
-      case "javascript":
-        return true;
-
       case "native":
         if (getNativeImagePath()) {
           return true;

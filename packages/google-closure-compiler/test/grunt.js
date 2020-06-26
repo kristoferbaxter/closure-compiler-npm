@@ -27,7 +27,6 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const ClosureCompiler = require('../lib/node/closure-compiler');
-const JsClosureCompiler = require('../lib/node/closure-compiler-js');
 require('mocha');
 
 process.on('unhandledRejection', e => { throw e; });
@@ -108,7 +107,6 @@ function getGruntTaskObject(fileObj, options, asyncDone) {
 
 describe('grunt-google-closure-compiler', function() {
   let originalCompilerRunMethod;
-  let originalJsCompilerRunMethod;
   let platformUtilized;
 
   before(() => {
@@ -123,25 +121,13 @@ describe('grunt-google-closure-compiler', function() {
       enumerable: false,
       configurable: true
     });
-
-    originalJsCompilerRunMethod = Object.getOwnPropertyDescriptor(JsClosureCompiler.prototype, 'run');
-    Object.defineProperty(JsClosureCompiler.prototype, 'run', {
-      value: function(...args) {
-        platformUtilized = 'javascript';
-        return originalJsCompilerRunMethod.value.apply(this, args);
-      },
-      writable: true,
-      enumerable: false,
-      configurable: true
-    });
   });
 
   after(() => {
     Object.defineProperty(ClosureCompiler.prototype, 'run', originalCompilerRunMethod);
-    Object.defineProperty(JsClosureCompiler.prototype, 'run', originalJsCompilerRunMethod);
   });
 
-  ['java', 'native', 'javascript'].forEach(platform => {
+  ['java', 'native'].forEach(platform => {
     describe(`${platform} version`, function() {
       let closureCompiler;
       this.slow(1000);

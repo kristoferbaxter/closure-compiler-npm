@@ -593,6 +593,57 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.2.tgz#54c5a964462be3d4d78af631363c18d6fa91ac26"
   integrity sha512-yprFYuno9FtNsSHVlSWd+nRlmGoAbqbeCwOryP6sC/zoCjhpArcRMYp19EvpSUSizJAlsXEwJv+wcWS9XaXdMw==
 
+"@oozcitak/dom@1.15.6":
+  version "1.15.6"
+  resolved "https://registry.yarnpkg.com/@oozcitak/dom/-/dom-1.15.6.tgz#b8423d7bbc0a2e98f3a924e068332a4bc7330314"
+  integrity sha512-k4uEIa6DI3FCrFJMGq/05U/59WnS9DjME0kaPqBRCJAqBTkmopbYV1Xs4qFKbDJ/9wOg8W97p+1E0heng/LH7g==
+  dependencies:
+    "@oozcitak/infra" "1.0.5"
+    "@oozcitak/url" "1.0.0"
+    "@oozcitak/util" "8.3.4"
+
+"@oozcitak/infra@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@oozcitak/infra/-/infra-1.0.3.tgz#a83f912872c717783a5705d39c9c8d371fd28a9d"
+  integrity sha512-9O2wxXGnRzy76O1XUxESxDGsXT5kzETJPvYbreO4mv6bqe1+YSuux2cZTagjJ/T4UfEwFJz5ixanOqB0QgYAag==
+  dependencies:
+    "@oozcitak/util" "1.0.1"
+
+"@oozcitak/infra@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@oozcitak/infra/-/infra-1.0.5.tgz#4bbb35df2dfc14e4316de7c9cd16281f0c9a7dd3"
+  integrity sha512-o+zZH7M6l5e3FaAWy3ojaPIVN5eusaYPrKm6MZQt0DKNdgXa2wDYExjpP0t/zx+GoQgQKzLu7cfD8rHCLt8JrQ==
+  dependencies:
+    "@oozcitak/util" "8.0.0"
+
+"@oozcitak/url@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@oozcitak/url/-/url-1.0.0.tgz#a67e86c5c5807867d48360fd6cba1f160f35879e"
+  integrity sha512-LGrMeSxeLzsdaitxq3ZmBRVOrlRRQIgNNci6L0VRnOKlJFuRIkNm4B+BObXPCJA6JT5bEJtrrwjn30jueHJYZQ==
+  dependencies:
+    "@oozcitak/infra" "1.0.3"
+    "@oozcitak/util" "1.0.2"
+
+"@oozcitak/util@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-1.0.1.tgz#bf1b78f62dad75ec992d63289a15863da00fdc05"
+  integrity sha512-dFwFqcKrQnJ2SapOmRD1nQWEZUtbtIy9Y6TyJquzsalWNJsKIPxmTI0KG6Ypyl8j7v89L2wixH9fQDNrF78hKg==
+
+"@oozcitak/util@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-1.0.2.tgz#5860b8226b765c674d2bb0a3b66a71ef7083742c"
+  integrity sha512-4n8B1cWlJleSOSba5gxsMcN4tO8KkkcvXhNWW+ADqvq9Xj+Lrl9uCa90GRpjekqQJyt84aUX015DG81LFpZYXA==
+
+"@oozcitak/util@8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-8.0.0.tgz#5abdd567de2246120cbec6c40dedead183bcc5d5"
+  integrity sha512-+9Hq6yuoq/3TRV/n/xcpydGBq2qN2/DEDMqNTG7rm95K6ZE2/YY/sPyx62+1n8QsE9O26e5M1URlXsk+AnN9Jw==
+
+"@oozcitak/util@8.3.4":
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-8.3.4.tgz#34b996b1688db21c5d65d806445aab2b93e95cb5"
+  integrity sha512-6gH/bLQJSJEg7OEpkH4wGQdA8KXHRbzL1YkGyUO12YNAgV3jxKy4K9kvfXj4+9T0OLug5k58cnPCKSSIKzp7pg==
+
 "@types/minimatch@^3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -906,6 +957,11 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
+
+at-least-node@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
+  integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
 atob@^2.1.1:
   version "2.1.2"
@@ -2166,6 +2222,16 @@ from2@^2.1.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
 
+fs-extra@9.x:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.0.1.tgz#910da0062437ba4c39fedd863f1675ccfefcb9fc"
+  integrity sha512-h2iAoN838FqAFJY2/qVpzFXy+EBxfVE220PalAqQLDVsFOHLJrZvut5puAbCdNv6WJk+B8ihI+k0c7JK5erwqQ==
+  dependencies:
+    at-least-node "^1.0.0"
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^1.0.0"
+
 fs-extra@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-7.0.0.tgz#8cc3f47ce07ef7b3593a11b9fb245f7e34c041d6"
@@ -2465,10 +2531,56 @@ glogg@^1.0.0:
   dependencies:
     sparkles "^1.0.0"
 
+google-closure-compiler-java@^20200614.0.0:
+  version "20200614.0.0"
+  resolved "https://registry.yarnpkg.com/google-closure-compiler-java/-/google-closure-compiler-java-20200614.0.0.tgz#09a4f76e2684c69fada1ec0b27290dcbd23740e5"
+  integrity sha512-9o5KJLt5EWCMWs1zW/+PjoISd9hso/TqZvJ1+3Q7p956XshY2Hs2V3lXT5v4Y9C7PThRdjFry7/Ids+KgF57WA==
+
+google-closure-compiler-js@^20200614.0.0:
+  version "20200614.0.0"
+  resolved "https://registry.yarnpkg.com/google-closure-compiler-js/-/google-closure-compiler-js-20200614.0.0.tgz#f3ce1dfabd976099c6e238611ffd670d665ef573"
+  integrity sha512-N2Sok4PHpRmQTSu/Am8Ex715RRYFk524ZvqIdT1VIWnrWhtKN5+lXhtYEXoJFpUKwt1+1QR8nrGIIl3iry+rhA==
+
+google-closure-compiler-linux@^20200614.0.0:
+  version "20200614.0.0"
+  resolved "https://registry.yarnpkg.com/google-closure-compiler-linux/-/google-closure-compiler-linux-20200614.0.0.tgz#fc8d8ce67d7c97654c77bda8a09792abd36a0049"
+  integrity sha512-/GKA0YXJJi4OZm6C6pSfltg28J/BQV+xbFpNxvN+mqCUPl/tLtC7iWCQ4kwLAZ+ioQD2hH5t+kTs7iJ57IN80A==
+
+google-closure-compiler-osx@^20200614.0.0:
+  version "20200614.0.0"
+  resolved "https://registry.yarnpkg.com/google-closure-compiler-osx/-/google-closure-compiler-osx-20200614.0.0.tgz#a4fd478c18a3a3464961bdc6970907b1b76082a7"
+  integrity sha512-wooNE6MYaHzgDN3fE5RL2jzZNh5U6VQqX/xfltMvlvLeAAQteWabLhRWHClrkpnc2b7ZxINcfZdbm1x0rYPAwA==
+
+google-closure-compiler-windows@^20200614.0.0:
+  version "20200614.0.0"
+  resolved "https://registry.yarnpkg.com/google-closure-compiler-windows/-/google-closure-compiler-windows-20200614.0.0.tgz#a91f8956b38f6271cae641e0ee924ab53d7bf0a3"
+  integrity sha512-0VmUpgb8TJI4XAGcLBfcwTaJFFiXbBt6OprEAo3OU1uJPy1bsiG/eC0Qtua8M9+Qy9EBDjTCN7P4RAAwJ5Y7RA==
+
+google-closure-compiler@20200614.0.0:
+  version "20200614.0.0"
+  resolved "https://registry.yarnpkg.com/google-closure-compiler/-/google-closure-compiler-20200614.0.0.tgz#3e94d3872a7dbf7a897d58044ec626664c468a17"
+  integrity sha512-KY6AV2v43WOBF1HP7S8IqVGGoxLs4JFfwMtq838B7w4V66qdbkzML22sfzv18ICL7J9JYF7axHjCVr9zfeqldQ==
+  dependencies:
+    chalk "2.x"
+    google-closure-compiler-java "^20200614.0.0"
+    google-closure-compiler-js "^20200614.0.0"
+    minimist "1.x"
+    vinyl "2.x"
+    vinyl-sourcemaps-apply "^0.2.0"
+  optionalDependencies:
+    google-closure-compiler-linux "^20200614.0.0"
+    google-closure-compiler-osx "^20200614.0.0"
+    google-closure-compiler-windows "^20200614.0.0"
+
 graceful-fs@4.X, graceful-fs@^4.0.0, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423"
   integrity sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
+
+graceful-fs@^4.2.0:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
+  integrity sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
 
 growl@1.10.5:
   version "1.10.5"
@@ -3144,6 +3256,15 @@ jsonfile@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-4.0.0.tgz#8771aae0799b64076b76640fca058f9c10e33ecb"
   integrity sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=
+  optionalDependencies:
+    graceful-fs "^4.1.6"
+
+jsonfile@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-6.0.1.tgz#98966cba214378c8c84b82e085907b40bf614179"
+  integrity sha512-jR2b5v7d2vIOust+w3wtFKZIfpC2pnRmFAhAC/BuweZFQR8qZzxH1OyrQ10HmdVYiXWkYUqPVsz91cG7EL2FBg==
+  dependencies:
+    universalify "^1.0.0"
   optionalDependencies:
     graceful-fs "^4.1.6"
 
@@ -4895,7 +5016,12 @@ semver-greatest-satisfied-range@^1.1.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
   integrity sha512-RS9R6R35NYgQn++fkDWaOmqGoj4Ek9gGs+DPxNUZKuwE183xjJroKvyo1IzVFeXvUrvmALy6FWD5xrdJT25gMg==
 
-semver@5.x, semver@^5.3.0, semver@^5.7.0:
+semver@7.x:
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.2.tgz#604962b052b81ed0786aae84389ffba70ffd3938"
+  integrity sha512-OrOb32TeeambH6UrhtShmF7CRDqhL6/5XpPNp2DuRH6+9QLw/orhp72j87v8Qa1ScDkvrrBNpZcDejAirJmfXQ==
+
+semver@^5.3.0, semver@^5.7.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.0.tgz#790a7cf6fea5459bac96110b29b60412dc8ff96b"
   integrity sha512-Ya52jSX2u7QKghxeoFGpLwCtGlt7j0oY9DYb5apt9nPlJ42ID+ulTXESnt/qAQcoSERyZ5sl3LDIOw0nAn/5DA==
@@ -5639,6 +5765,11 @@ universalify@^0.1.0:
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
   integrity sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
 
+universalify@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/universalify/-/universalify-1.0.0.tgz#b61a1da173e8435b2fe3c67d29b9adf8594bd16d"
+  integrity sha512-rb6X1W158d7pRQBg5gkR8uPaSfiids68LTJQYOtEUhoJUWBdaQHsuT/EUduxXYxcrt4r5PJ4fuHW1MHT6p0qug==
+
 unset-value@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unset-value/-/unset-value-1.0.0.tgz#8376873f7d2335179ffb1e6fc3a8ed0dfc8ab559"
@@ -5854,6 +5985,15 @@ write-pkg@^3.1.0:
   dependencies:
     sort-keys "^2.0.0"
     write-json-file "^2.2.0"
+
+xmlbuilder2@2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/xmlbuilder2/-/xmlbuilder2-2.1.5.tgz#06432b4085250e4d651d84532d896ebd551533a6"
+  integrity sha512-M3gOh5sUVZfTDWh05sqWu+7NyLtUBkuXCbtDzyPlFg7VAtH9USj5Ua5nTSbyZDUaagH4hRw/ve1rsmoEuilJvQ==
+  dependencies:
+    "@oozcitak/dom" "1.15.6"
+    "@oozcitak/infra" "1.0.5"
+    "@oozcitak/util" "8.3.4"
 
 xregexp@4.0.0:
   version "4.0.0"

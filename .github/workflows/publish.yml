@@ -1,0 +1,26 @@
+name: Publish Binaries
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Restrict Packages to each specific OS 
+      run: yarn install; yarn build; yarn restrict
+    - name: Push Changes
+      uses: kristoferbaxter/github-push-action@master
+      with:
+        force: true
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.head_ref }}

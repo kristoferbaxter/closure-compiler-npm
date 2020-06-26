@@ -1,5 +1,5 @@
 {
-  "name": "google-closure-compiler-osx",
+  "name": "@kristoferbaxter/google-closure-compiler-osx",
   "version": "20200517.0.0",
   "description": "Check, compile, optimize and compress Javascript with Closure-Compiler using Java",
   "main": "index.js",
@@ -27,6 +27,7 @@
   ],
   "scripts": {
     "build": "./build-image.js",
-    "test": "./test.js"
+    "test": "./test.js",
+    "restrict": "./add-os-restrictions.js"
   }
 }
