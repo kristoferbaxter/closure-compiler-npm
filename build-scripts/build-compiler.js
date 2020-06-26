@@ -14,21 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- * @fileoverview Build the compiler java jar and GWT platforms from source.
- *
- * Invoked as part of the package build process:
- *
- *     yarn run build
- *
- * For pull requests and pushes to master, the compiler submodule is expected to be pointed at the tagged commit
- * that matches the package major version.
- *
- * When the COMPILER_NIGHTLY env variable is set, the compiler submodule will be pointing to the latest master
- * commit. This is for regular integration testing of the compiler with the various tests in this repo's packages.
- * In this case the compiler will be built as a SNAPSHOT.
- */
 "use strict";
 
 const fs = require("fs-extra");
