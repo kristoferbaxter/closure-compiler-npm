@@ -38,7 +38,7 @@ process.on("unhandledRejection", (error) => {
  */
 async function updateClosureSubmodule() {
   const version = semverMajor(pkg.devDependencies["google-closure-compiler"]);
-  await runCommand('git', [`checkout closure-compiler-parent-v${version}`], { cwd: "./compiler" });
+  await runCommand('git', ['checkout', `closure-compiler-parent-v${version}`], { cwd: "./compiler" });
 }
 
 (async function () {
