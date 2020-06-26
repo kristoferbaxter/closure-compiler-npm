@@ -1,7 +1,7 @@
 {
   "name": "@kristoferbaxter/google-closure-compiler",
   "version": "20200517.0.1",
-  "description": "Check, compile, optimize and compress Javascript with Closure-Compiler",
+  "description": "Forked Closure Compiler Publishing using AMP Command Line Runner",
   "repository": "https://github.com/google/closure-compiler-npm/tree/master/packages/google-closure-compiler",
   "keywords": [
     "javascript",
@@ -16,12 +16,6 @@
     "google-closure-compiler": "cli.js"
   },
   "main": "index.js",
-  "contributors": [
-    {
-      "name": "Chad Killingsworth",
-      "email": "chadkillingsworth@gmail.com"
-    }
-  ],
   "files": [
     "lib/",
     "cli.js",

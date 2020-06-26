@@ -20,6 +20,7 @@ const pkg = require("../package.json");
 const semverMajor = require('semver/functions/major');
 const semverLt = require('semver/functions/lt');
 const fs = require("fs-extra");
+const runCommand = require("./run-command");
 
 const PACKAGE_FOLDER_NAMES = ['google-closure-compiler', 'google-closure-compiler-java', 'google-closure-compiler-linux', 'google-closure-compiler-osx'];
 
@@ -29,6 +30,16 @@ process.on("unhandledRejection", (error) => {
   console.error(error);
   process.exit(1);
 });
+
+/**
+ * Update the Closure Submodule if necessary
+ * @param {}
+ * @return {Promise<undefined>}
+ */
+async function updateClosureSubmodule() {
+  const version = semverMajor(pkg.devDependencies["google-closure-compiler"]);
+  await runCommand('git', ["checkout", `closure-compiler-v${version}`], { cwd: "./compiler" });
+}
 
 (async function () {
   // 1. Retrieve Closure Version from NPM version published. 
@@ -42,7 +53,24 @@ process.on("unhandledRejection", (error) => {
     if (semverLt(parsed.version, closureVersion)) {
       // Only update the version if its older than the current released `closure-compiler`.
       parsed.version = closureVersion;
+
+      // Ensure the linked dependencies are also using the current released `closure-compiler`.
+      const hatClosureVersion = '^' + closureVersion;
+      if (parsed.dependencies && parsed.dependencies['@kristoferbaxter/google-closure-compiler-java']) {
+        parsed.dependencies['@kristoferbaxter/google-closure-compiler-java'] = hatClosureVersion;
+      }
+      if (parsed.optionalDependencies) {
+        if (parsed.optionalDependencies['@kristoferbaxter/google-closure-compiler-linux']) {
+          parsed.optionalDependencies['@kristoferbaxter/google-closure-compiler-linux'] = hatClosureVersion;
+        }
+        if (parsed.optionalDependencies['@kristoferbaxter/google-closure-compiler-osx']) {
+          parsed.optionalDependencies['@kristoferbaxter/google-closure-compiler-osx'] = hatClosureVersion;
+        }
+      }
       await fs.writeFile(packageLocation, JSON.stringify(parsed, null, 2), 'utf8');
     }
   }
+
+  // 3. Update Closure Submodule.
+  await updateClosureSubmodule();
 })();

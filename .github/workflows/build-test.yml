@@ -17,11 +17,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn install
-    - run: node ./build-scripts/bump-version.js
-    - run: yarn build
-    - run: yarn test
-    - name: Push changes
+    - name: Install Dependencies
+      with: yarn install
+    - name: Upgrade Packages to Specified Closure Version
+      with: node ./build-scripts/bump-version.js
+    - name: Compile Native Binary
+      with: yarn build
+    - name: Test Changes
+      with: yarn test
+    - name: Push Changes
       uses: kristoferbaxter/github-push-action@master
       with:
         force: true

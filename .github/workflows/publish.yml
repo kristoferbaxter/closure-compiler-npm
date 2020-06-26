@@ -16,7 +16,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Build and Restrict Native Binaries
+    - name: Restrict Packages to each specific OS 
       run: yarn install; yarn build; yarn restrict
-    - name: Publish Binaries
-      run: yarn publish
+    - name: Push Changes
+      uses: kristoferbaxter/github-push-action@master
+      with:
+        force: true
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.head_ref }}
